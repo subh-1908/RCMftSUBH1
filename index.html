@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="RCMftSUBH - Modern business website. Discover our products, services and connect with us.">
+  <title>RCMftSUBH | Business</title>
+  <style>
+    :root{
+      --bg:#0b1020; --card:#121a30; --text:#f5f7ff; --muted:#aab4cf;
+      --accent:#7c5cff; --accent2:#00d4ff; --border:rgba(255,255,255,.1);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#080c18,#0e1530 55%,#080c18);color:var(--text);line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1100px,92%);margin:auto}
+    header{position:sticky;top:0;z-index:10;background:rgba(8,12,24,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+    nav{height:72px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-size:1.45rem;font-weight:800;letter-spacing:.5px}
+    .logo span{color:var(--accent2)}
+    .links{display:flex;gap:24px;align-items:center}
+    .links a{color:var(--muted);font-size:.95rem}
+    .links a:hover{color:white}
+    .menu{display:none;background:none;border:1px solid var(--border);color:white;border-radius:10px;padding:8px 11px;font-size:1.2rem}
+    .hero{padding:100px 0 85px;text-align:center;position:relative;overflow:hidden}
+    .glow{position:absolute;width:360px;height:360px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));filter:blur(100px);opacity:.18;top:30px;left:50%;transform:translateX(-50%);pointer-events:none}
+    .badge{display:inline-block;border:1px solid var(--border);background:rgba(255,255,255,.04);padding:7px 14px;border-radius:999px;color:#cdd5ee;font-size:.85rem;margin-bottom:22px}
+    h1{font-size:clamp(2.5rem,8vw,5rem);line-height:1.05;letter-spacing:-2px}
+    h1 span{background:linear-gradient(90deg,#fff,var(--accent2),#b49cff);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero p{max-width:680px;margin:22px auto;color:var(--muted);font-size:1.08rem}
+    .buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .btn{display:inline-block;padding:13px 20px;border-radius:12px;font-weight:700;border:1px solid var(--border);transition:.2s}
+    .btn.primary{background:linear-gradient(135deg,var(--accent),#5a8cff);border:0}
+    .btn.secondary{background:rgba(255,255,255,.05)}
+    .btn:hover{transform:translateY(-2px)}
+    section{padding:75px 0}
+    .section-title{text-align:center;margin-bottom:40px}
+    .section-title h2{font-size:2rem;margin-bottom:8px}
+    .section-title p{color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.025));border:1px solid var(--border);border-radius:18px;padding:26px}
+    .icon{font-size:2rem;margin-bottom:15px}
+    .card h3{margin-bottom:8px}
+    .card p{color:var(--muted);font-size:.95rem}
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:stretch}
+    .highlight{background:linear-gradient(135deg,rgba(124,92,255,.18),rgba(0,212,255,.08));border:1px solid var(--border);border-radius:22px;padding:35px}
+    .highlight h2{font-size:2.1rem;margin-bottom:15px}
+    .highlight p{color:var(--muted)}
+    .checks{margin-top:20px;display:grid;gap:10px}
+    .checks div{color:#dce3f8}
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .contact-box{padding:28px;border:1px solid var(--border);border-radius:18px;background:rgba(255,255,255,.04)}
+    .contact-box p{color:var(--muted);margin:8px 0 20px}
+    .contact-row{padding:13px 0;border-bottom:1px solid var(--border)}
+    .contact-row:last-child{border:0}
+    footer{border-top:1px solid var(--border);padding:28px 0;color:var(--muted);text-align:center}
+    .whatsapp{position:fixed;right:20px;bottom:20px;width:55px;height:55px;border-radius:50%;display:grid;place-items:center;background:#25D366;color:white;font-size:1.5rem;box-shadow:0 10px 30px rgba(0,0,0,.35);z-index:20}
+    @media(max-width:760px){
+      .links{display:none;position:absolute;top:72px;left:0;right:0;background:#0b1020;border-bottom:1px solid var(--border);padding:18px 4%;flex-direction:column;align-items:flex-start}
+      .links.open{display:flex}.menu{display:block}
+      .hero{padding:75px 0 65px}
+      .grid,.about,.contact{grid-template-columns:1fr}
+      section{padding:55px 0}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <a class="logo" href="#home">RCM<span>ft</span>SUBH</a>
+      <button class="menu" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+      <div class="links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#why">Why Us</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="glow"></div>
+    <div class="container">
+      <div class="badge">Welcome to RCMftSUBH</div>
+      <h1>Build. Grow. <span>Connect.</span></h1>
+      <p>A modern business brand focused on useful products, reliable service and a better customer experience.</p>
+      <div class="buttons">
+        <a class="btn primary" href="#services">Explore Services</a>
+        <a class="btn secondary" href="#contact">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-title">
+        <h2>About RCMftSUBH</h2>
+        <p>A simple, customer-focused business experience.</p>
+      </div>
+      <div class="about">
+        <div class="highlight">
+          <h2>More than a name.</h2>
+          <p>RCMftSUBH is built around trust, simplicity and long-term customer relationships. This website is ready to showcase your real business, products and services.</p>
+          <div class="checks">
+            <div>✓ Customer-focused approach</div>
+            <div>✓ Simple and transparent communication</div>
+            <div>✓ Mobile-friendly experience</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="icon">🚀</div>
+          <h3>Our Vision</h3>
+          <p>To create a recognizable and trustworthy brand that makes it easy for customers to discover, understand and connect with RCMftSUBH.</p>
+          <br>
+          <div class="icon">🤝</div>
+          <h3>Our Promise</h3>
+          <p>Clear information, respectful service and a smooth experience from first contact to follow-up.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>Products & Services</h2>
+        <p>Replace these sample cards with your actual business offerings.</p>
+      </div>
+      <div class="grid">
+        <div class="card"><div class="icon">🛍️</div><h3>Products</h3><p>Show your products, key features and pricing information here.</p></div>
+        <div class="card"><div class="icon">⚡</div><h3>Fast Service</h3><p>Explain what makes your service convenient and useful for customers.</p></div>
+        <div class="card"><div class="icon">💬</div><h3>Customer Support</h3><p>Give customers an easy way to ask questions and get in touch.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why">
+    <div class="container">
+      <div class="section-title">
+        <h2>Why RCMftSUBH?</h2>
+        <p>Built to make your business easy to discover.</p>
+      </div>
+      <div class="grid">
+        <div class="card"><div class="icon">🔒</div><h3>Trust</h3><p>Present your business information clearly so customers know who they are dealing with.</p></div>
+        <div class="card"><div class="icon">📱</div><h3>Mobile First</h3><p>Designed to look clean and work smoothly on phones, tablets and computers.</p></div>
+        <div class="card"><div class="icon">✨</div><h3>Professional</h3><p>A modern visual identity that can grow with your brand.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Let's Connect</h2>
+        <p>Update the details below with your real business contact information.</p>
+      </div>
+      <div class="contact">
+        <div class="contact-box">
+          <h3>Contact RCMftSUBH</h3>
+          <p>Have a question or want to know more? Reach out directly.</p>
+          <div class="contact-row">📞 Phone: <strong>+91 81440 64050</strong></div>
+          <div class="contact-row">✉️ Email: <strong>rcmftsubh@gmail.com</strong></div>
+          <div class="contact-row">📍 Location: <strong>Odisha, India</strong></div>
+        </div>
+        <div class="contact-box">
+          <h3>Quick Message</h3>
+          <p>Use the WhatsApp button to start a conversation.</p>
+          <a class="btn primary" href="https://wa.me/918144064050" target="_blank" rel="noopener">Message on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<a class="whatsapp" href="https://wa.me/918144064050" target="_blank" rel="noopener" aria-label="WhatsApp">☏</a>
+
+<footer>
+  <div class="container">© <span id="year"></span> RCMftSUBH. All rights reserved.</div>
+</footer>
+
+<script>
+  function toggleMenu(){document.getElementById('navLinks').classList.toggle('open')}
+  document.querySelectorAll('#navLinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
+  document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
